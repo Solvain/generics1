@@ -13,6 +13,8 @@ public class Main {
         Box<Cat> catBox = new Box<>(cat);
         catBox.feed("Meat");
         System.out.println(horseBox);
-        System.out.println("new feature ");
+       char [] abc = "abc".toCharArray();
+        System.out.println(abc.length);
+        System.out.println(abc [2]==99);
     }
 }
