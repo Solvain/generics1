@@ -5,7 +5,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 class ArrayParserTest {
-    private final int[] new1 = new int[]{0, 67, 45, 4, 12, -17, -2, 5, 61, 111};
+    private final int[] new1 = new int[]{0, 67, 45, 4, 12, -17, -2, 5, 61, 111, 0, -17, 2, 23};
 
     @Test
     void sortArrayOfInts() {
@@ -14,7 +14,7 @@ class ArrayParserTest {
         ArrayParser.sortArrayOfInts(new1);
         Arrays.sort(copy);
         System.out.println(Arrays.toString(copy));
-        assertEquals(Arrays.toString(copy), Arrays.toString(new1), "must be sorted but " +Arrays.toString(new1));
+        assertEquals(Arrays.toString(copy), Arrays.toString(new1), "must be sorted but " + Arrays.toString(new1));
 
     }
 }
