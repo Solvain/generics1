@@ -19,10 +19,10 @@ public class ArrayParser {
         }
         System.out.println("After sorting" + Arrays.toString(input));
     }
-        public static void main(String[]args ) {
-            int[] array = new int[]{1, 7, 9, 2, 4, 9};
-            sortArrayOfInts(array);
 
+    public int countLettersAfterSpecified(String inputString, char specified) {
+        //inputString ->  abcdabcd specified -> 'c' return -> 2;
+        return 0;
     }
 }
 
