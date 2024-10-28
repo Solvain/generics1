@@ -28,6 +28,6 @@ class ArrayParserTest {
         int b = parser.countLettersAfterSpecified(testStr, 'b');
 
         System.out.println("result after test: " + b);
-        assertEquals(2, b, "must be 4 but " + b);
+        assertEquals(4, b, "must be 4 but " + b);
     }
 }
