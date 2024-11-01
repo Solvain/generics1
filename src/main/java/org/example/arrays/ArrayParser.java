@@ -20,18 +20,13 @@ public class ArrayParser {
         System.out.println("After sorting" + Arrays.toString(input));
     }
 
-    public int countLettersAfterSpecified(String inputString, char specified) {
-        //inputString ->  abcdabcd specified -> 'c' return -> 2;
-        return 0;
+    public int countLettersAfterSpecified(String str, char specified) {
+        int count = 0;
+        for (int i = 0; i < str.length() - 1; i++) {
+            if (str.charAt(i) <= specified) {
+                count++;
+            }
+        }
+        return count;
     }
 }
-
-
-
-
-
-
-
-
-
-
