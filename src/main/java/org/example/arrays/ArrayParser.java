@@ -22,11 +22,18 @@ public class ArrayParser {
 
     public int countLettersAfterSpecified(String str, char specified) {
         int count = 0;
-        for (int i = 0; i < str.length() - 1; i++) {
-            if (str.charAt(i) <= specified) {
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) > specified) {
                 count++;
             }
         }
         return count;
+    }
+
+    public String capitaliseLetters(String str, String numbers) {
+        //                        from input str = abcdabcd // numbers "3,4,5,7"
+        //                                         01234567
+        //  you must return string                 abcDABcD
+        return "";
     }
 }
