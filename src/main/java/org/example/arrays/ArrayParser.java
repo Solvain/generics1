@@ -1,28 +1,30 @@
 package org.example.arrays;
 
-import java.util.Arrays;
-
 public class ArrayParser {
-    public static void sortArrayOfInts(int[] input) {
-        System.out.println("Let's sort this array:");
 
-        System.out.println("Before sorting" + Arrays.toString(input));
-        for (int i = 0; i < input.length; i++) {
-            for (int j = i + 1; j < input.length; j++) {
-                if (input[i] > input[j]) {
-                    int temp = input[i];
-                    input[i] = input[j];
-                    input[j] = temp;
 
+    public void sortArrayOfInts(int[] array) {
+
+        boolean swapped;
+        do {
+            swapped = false;
+            for (int i = 0; i < array.length - 1; i++) {
+                if (array[i] > array[i + 1]) {
+
+                    int temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = temp;
+                    swapped = true;
                 }
             }
-        }
-        System.out.println("After sorting" + Arrays.toString(input));
+        } while (swapped);
     }
+
 
     public int countLettersAfterSpecified(String str, char specified) {
         int count = 0;
-        for (int i = 0; i < str.length() - 1; i++) {
+
+        for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) <= specified) {
                 count++;
             }
@@ -30,3 +32,4 @@ public class ArrayParser {
         return count;
     }
 }
+
