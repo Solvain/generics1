@@ -36,4 +36,9 @@ public class ArrayParser {
         //  you must return string                 abcDABcD
         return "";
     }
+
+    public int evenNumberCounter(int [] input) {
+        //     count the even numbers in the input array
+        return 0;
+    }
 }

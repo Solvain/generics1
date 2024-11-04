@@ -44,4 +44,13 @@ class ArrayParserTest {
         String result3 = parser.capitaliseLetters(testStr, "0,1,2,3");
         assertEquals("ABCDabcd", result3);
     }
+
+    @Test
+    void oddEvenTest() {
+        ArrayParser parser = new ArrayParser();
+
+        assertEquals(0, parser.evenNumberCounter(new int[]{7, 7, 7, 7, 7, 7}));
+        assertEquals(4, parser.evenNumberCounter(new1));
+        assertEquals(6, parser.evenNumberCounter(new int[]{8, 8, 8, 8, 8, 8}));
+    }
 }
