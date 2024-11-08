@@ -63,5 +63,15 @@ public class ArrayParser {
         //     count the even numbers in the input array
         return 0;
     }
+
+    public int[] nullChecker(Double[] input1, Boolean[] input2) {
+        //     2 arrays the same length like this { 0, 3, null } and { true, false , null }
+        //  calculate 3 conditions and write them into array
+        //  index 0 - both null, index 1 - Double not null and boolean true , index 2 Double not null and boolean false
+        // out must be like this- { 2, 1, 5 }
+        int [] out = new int[3];
+        // your code
+        return out;
+    }
 }
 
