@@ -36,30 +36,24 @@ public class ArrayParser {
     }
 
     public String capitaliseLetters(String input, String indices) {
-      /*  StringBuilder builder = new  StringBuilder(input);
-        int[] indexArray = Arrays.stream(indices.split(","))
-                .mapToInt(Integer::parseInt)
-                .toArray();
-        for (int index : indexArray) {
-            if (index >= 0 && index < builder.length()) {
-                char upperChar = Character.toUpperCase(builder.charAt ( index));
-                builder.setCharAt(index, upperChar);
-            }*/
-        StringBuffer buffer = new StringBuffer(input);
-        int[] indexArray = Arrays.stream(indices.split(","))
-                .mapToInt(Integer::parseInt)
-                .toArray();
-        for (int index : indexArray) {
-            if (index >= 0 && index < buffer.length()) {
-                buffer.setCharAt(index, Character.toUpperCase(buffer.charAt(index)));
+        StringBuilder result = new StringBuilder(input);
+        String[] posArray = indices.split(",");
+
+        for (String posStr : posArray) {
+            int pos = Integer.parseInt(posStr.trim());
+            if (pos >= 0 && pos < input.length()) {
+                char upperChar = Character.toUpperCase(result.charAt(pos));
+                result.setCharAt(pos, upperChar);
             }
         }
+        return result.toString();
+    }
 
 
         //                        from input  str = abcdabcd // numbers "3,4,5,7"
         //                                         01234567
         //  you must return string                 abcDABcD
-        return buffer.toString();
+
     }
-}
+
 
