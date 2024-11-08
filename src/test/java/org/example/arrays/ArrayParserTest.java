@@ -30,4 +30,27 @@ class ArrayParserTest {
         System.out.println("result after test: " + b);
         assertEquals(4, b, "must be 4 but " + b);
     }
+
+    @Test
+    void capitaliseLettersTest() {
+        ArrayParser parser = new ArrayParser();
+
+        String result = parser.capitaliseLetters(testStr, "3,4,5,7");
+        assertEquals("abcDABcD", result);
+
+        String result2 = parser.capitaliseLetters(testStr, "0,7");
+        assertEquals("AbcdabcD", result2);
+
+        String result3 = parser.capitaliseLetters(testStr, "0,1,2,3");
+        assertEquals("ABCDabcd", result3);
+    }
+
+    @Test
+    void oddEvenTest() {
+        ArrayParser parser = new ArrayParser();
+
+        assertEquals(0, parser.evenNumberCounter(new int[]{7, 7, 7, 7, 7, 7}));
+        assertEquals(4, parser.evenNumberCounter(new1));
+        assertEquals(6, parser.evenNumberCounter(new int[]{8, 8, 8, 8, 8, 8}));
+    }
 }
