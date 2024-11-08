@@ -46,6 +46,20 @@ class ArrayParserTest {
     }
 
     @Test
+    void capitaliseLettersTest2() {
+        ArrayParser parser = new ArrayParser();
+
+        String result = parser.capitaliseLettersFromMentor(testStr, "3,4,5,7");
+        assertEquals("abcDABcD", result);
+
+        String result2 = parser.capitaliseLettersFromMentor(testStr, "0,7");
+        assertEquals("AbcdabcD", result2);
+
+        String result3 = parser.capitaliseLettersFromMentor(testStr, "0,1,2,3");
+        assertEquals("ABCDabcd", result3);
+    }
+
+    @Test
     void oddEvenTest() {
         ArrayParser parser = new ArrayParser();
 

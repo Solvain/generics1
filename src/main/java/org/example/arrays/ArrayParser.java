@@ -1,12 +1,9 @@
 package org.example.arrays;
 
-import java.util.Arrays;
-import java.util.stream.Stream;
-
 public class ArrayParser {
 
 
-    public void sortArrayOfInts(int[] array) {
+    public static void sortArrayOfInts(int[] array) {
 
         boolean swapped;
         do {
@@ -50,11 +47,18 @@ public class ArrayParser {
         return result.toString();
     }
 
-//
-        //                        from input  str = abcdabcd // numbers "3,4,5,7"
-        //                                         01234567
-        //  you must return string                 abcDABcD
+    public String capitaliseLettersFromMentor (String input, String indexes) {
+        StringBuilder result = new StringBuilder(input);
+        String[] posArray = indexes.split(",");
 
+        for (String posStr : posArray) {
+            int pos = Integer.parseInt(posStr);
+            if (pos >= 0 && pos < input.length()) {
+                char upperChar = (char)(result.charAt(pos) - 32);
+                result.setCharAt(pos, upperChar);
+            }
+        }
+        return result.toString();
     }
 
     public int evenNumberCounter(int [] input) {
