@@ -49,7 +49,7 @@ public class ArrayParser {
         return result.toString();
     }
 
-
+//
         //                        from input  str = abcdabcd // numbers "3,4,5,7"
         //                                         01234567
         //  you must return string                 abcDABcD
