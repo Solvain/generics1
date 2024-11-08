@@ -28,12 +28,13 @@ public class ArrayParser {
         int count = 0;
 
         for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) <= specified) {
+            if (str.charAt(i) > specified) {
                 count++;
             }
         }
         return count;
     }
+
 
     public String capitaliseLetters(String input, String indices) {
         StringBuilder result = new StringBuilder(input);
@@ -56,4 +57,9 @@ public class ArrayParser {
 
     }
 
+    public int evenNumberCounter(int [] input) {
+        //     count the even numbers in the input array
+        return 0;
+    }
+}
 
