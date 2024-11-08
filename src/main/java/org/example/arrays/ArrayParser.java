@@ -47,21 +47,19 @@ public class ArrayParser {
         return result.toString();
     }
 
-    public String capitaliseLettersFromMentor (String input, String indexes) {
+    public String capitaliseLettersFromMentor(String input, String indexes) {
         StringBuilder result = new StringBuilder(input);
         String[] posArray = indexes.split(",");
 
         for (String posStr : posArray) {
             int pos = Integer.parseInt(posStr);
-            if (pos >= 0 && pos < input.length()) {
-                char upperChar = (char)(result.charAt(pos) - 32);
-                result.setCharAt(pos, upperChar);
-            }
+            char upperChar = (char) (result.charAt(pos) - 32);
+            result.setCharAt(pos, upperChar);
         }
         return result.toString();
     }
 
-    public int evenNumberCounter(int [] input) {
+    public int evenNumberCounter(int[] input) {
         //     count the even numbers in the input array
         return 0;
     }
