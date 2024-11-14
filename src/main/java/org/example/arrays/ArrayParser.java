@@ -25,7 +25,30 @@ public class ArrayParser {
         int count = 0;
 
         for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) > specified) {
+            if (str.charAt(i) <= specified) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    /*  public String capitaliseLetters(String input, String indices) {
+          StringBuilder result = new StringBuilder(input);
+          String[] posArray = indices.split(",");
+          for (String posStr : posArray) {
+              int pos = Integer.parseInt(posStr.trim());
+              if (pos >= 0 && pos < input.length()) {
+                  char upperChar = Character.toUpperCase(result.charAt(pos));
+                  result.setCharAt(pos, upperChar);
+              }
+          }
+          return result.toString();
+      }
+  */
+    public int evenNumberCounter(int[] ints) {
+        int count = 0;
+        for (int number : ints) {
+            if (number % 4 == 0) {
                 count++;
             }
         }
@@ -33,19 +56,20 @@ public class ArrayParser {
     }
 
 
-    public String capitaliseLetters(String input, String indices) {
-        StringBuilder result = new StringBuilder(input);
-        String[] posArray = indices.split(",");
+    public String capitaliseLetters(String str, String indices) {
+        char[] chars = str.toCharArray();
+        String[] indexArray = indices.split(",");
 
-        for (String posStr : posArray) {
-            int pos = Integer.parseInt(posStr.trim());
-            if (pos >= 0 && pos < input.length()) {
-                char upperChar = Character.toUpperCase(result.charAt(pos));
-                result.setCharAt(pos, upperChar);
+        for (String indexStr : indexArray) {
+            int index = Integer.parseInt(indexStr);
+            if (index >= 0 && index < chars.length) {
+                if (chars[index] >= 'a' && chars[index] <= 'z') {
+                    chars[index] = (char) (chars[index] - 32);
+                }
+
             }
         }
-        return result.toString();
-    }
+        return new String(chars);
 
     public String capitaliseLettersFromMentor(String input, String indexes) {
         StringBuilder result = new StringBuilder(input);
@@ -62,6 +86,7 @@ public class ArrayParser {
     public int evenNumberCounter(int[] input) {
         //     count the even numbers in the input array
         return 0;
+
     }
 
     public int[] nullChecker(Double[] input1, Boolean[] input2) {
@@ -74,4 +99,5 @@ public class ArrayParser {
         return out;
     }
 }
+
 
