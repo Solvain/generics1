@@ -35,25 +35,44 @@ public class ArrayParser {
         return count;
     }
 
-    public String capitaliseLetters(String input, String indices) {
-        StringBuilder result = new StringBuilder(input);
-        String[] posArray = indices.split(",");
-
-        for (String posStr : posArray) {
-            int pos = Integer.parseInt(posStr.trim());
-            if (pos >= 0 && pos < input.length()) {
-                char upperChar = Character.toUpperCase(result.charAt(pos));
-                result.setCharAt(pos, upperChar);
+    /*  public String capitaliseLetters(String input, String indices) {
+          StringBuilder result = new StringBuilder(input);
+          String[] posArray = indices.split(",");
+          for (String posStr : posArray) {
+              int pos = Integer.parseInt(posStr.trim());
+              if (pos >= 0 && pos < input.length()) {
+                  char upperChar = Character.toUpperCase(result.charAt(pos));
+                  result.setCharAt(pos, upperChar);
+              }
+          }
+          return result.toString();
+      }
+  */
+    public int evenNumberCounter(int[] ints) {
+        int count = 0;
+        for (int number : ints) {
+            if (number % 4 == 0) {
+                count++;
             }
         }
-        return result.toString();
+        return count;
     }
 
-//
-        //                        from input  str = abcdabcd // numbers "3,4,5,7"
-        //                                         01234567
-        //  you must return string                 abcDABcD
+    public String capitaliseLetters(String str, String indices) {
+        char[] chars = str.toCharArray();
+        String[] indexArray = indices.split(",");
 
+        for (String indexStr : indexArray) {
+            int index = Integer.parseInt(indexStr);
+            if (index >= 0 && index < chars.length) {
+                if (chars[index] >= 'a' && chars[index] <= 'z') {
+                    chars[index] = (char) (chars[index] - 32);
+                }
+
+            }
+        }
+        return new String(chars);
     }
+}
 
 
