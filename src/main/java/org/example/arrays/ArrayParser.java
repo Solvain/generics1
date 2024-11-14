@@ -70,6 +70,7 @@ public class ArrayParser {
             }
         }
         return new String(chars);
+    }
 
     public String capitaliseLettersFromMentor(String input, String indexes) {
         StringBuilder result = new StringBuilder(input);
@@ -83,11 +84,6 @@ public class ArrayParser {
         return result.toString();
     }
 
-    public int evenNumberCounter(int[] input) {
-        //     count the even numbers in the input array
-        return 0;
-
-    }
 
     public int[] nullChecker(Double[] input1, Boolean[] input2) {
         //     2 arrays the same length like this { 0, 3, null } and { true, false , null }
