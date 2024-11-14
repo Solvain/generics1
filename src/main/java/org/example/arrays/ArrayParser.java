@@ -1,12 +1,9 @@
 package org.example.arrays;
 
-import java.util.Arrays;
-import java.util.stream.Stream;
-
 public class ArrayParser {
 
 
-    public void sortArrayOfInts(int[] array) {
+    public static void sortArrayOfInts(int[] array) {
 
         boolean swapped;
         do {
@@ -58,6 +55,7 @@ public class ArrayParser {
         return count;
     }
 
+
     public String capitaliseLetters(String str, String indices) {
         char[] chars = str.toCharArray();
         String[] indexArray = indices.split(",");
@@ -72,6 +70,33 @@ public class ArrayParser {
             }
         }
         return new String(chars);
+
+    public String capitaliseLettersFromMentor(String input, String indexes) {
+        StringBuilder result = new StringBuilder(input);
+        String[] posArray = indexes.split(",");
+
+        for (String posStr : posArray) {
+            int pos = Integer.parseInt(posStr);
+            char upperChar = (char) (result.charAt(pos) - 32);
+            result.setCharAt(pos, upperChar);
+        }
+        return result.toString();
+    }
+
+    public int evenNumberCounter(int[] input) {
+        //     count the even numbers in the input array
+        return 0;
+
+    }
+
+    public int[] nullChecker(Double[] input1, Boolean[] input2) {
+        //     2 arrays the same length like this { 0, 3, null } and { true, false , null }
+        //  calculate 3 conditions and write them into array
+        //  index 0 - both null, index 1 - Double not null and boolean true , index 2 Double not null and boolean false
+        // out must be like this- { 2, 1, 5 }
+        int [] out = new int[3];
+        // your code
+        return out;
     }
 }
 
