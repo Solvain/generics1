@@ -69,7 +69,7 @@ class ArrayParserTest {
 
         assertEquals(0, parser.evenNumberCounter(new int[]{7, 7, 7, 7, 7, 7}));
         assertEquals(4, parser.evenNumberCounter(new1));
-        assertEquals(6, parser.evenNumberCounter(new int[]{8, 8, 8, 8, 8, 8}));
+        assertEquals(6, parser.evenNumberCounter(new int[]{82, 8, 2, 8, 6, 8}));
     }
 
     @Test
