@@ -2,7 +2,6 @@ package org.example.arrays;
 
 public class ArrayParser {
 
-
     public static void sortArrayOfInts(int[] array) {
 
         boolean swapped;
