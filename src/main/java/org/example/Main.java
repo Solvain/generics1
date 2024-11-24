@@ -20,5 +20,6 @@ public class Main {
         System.out.println(Arrays.toString(ab));
         System.out.println(abc.length);
         System.out.println(abc[2] == 99);
+        System.out.println(Arrays.toString("abc".getBytes()));
     }
 }
