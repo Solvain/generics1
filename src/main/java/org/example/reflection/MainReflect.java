@@ -1,6 +1,5 @@
 package org.example.reflection;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
@@ -26,5 +25,7 @@ public class MainReflect {
         System.out.println(someAct.invoke(testExpo1));
 
         System.out.println(someActList.invoke(testExpo1, List.of(1, 2, 4, "dfs")));
+
+        System.out.println(testExpo0.check("Mf"));
     }
 }

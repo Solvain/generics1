@@ -91,7 +91,7 @@ public class Organic {
     }
 
     public static class FoodChain {
-        public void main(String[] args) {
+        public static void main(String[] args) {
 
             Organic cow = new Cow();
             Organic rabbit = new Rabbit();
