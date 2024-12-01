@@ -1,5 +1,6 @@
 package org.example.reflection;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
@@ -27,5 +28,12 @@ public class MainReflect {
         System.out.println(someActList.invoke(testExpo1, List.of(1, 2, 4, "dfs")));
 
         System.out.println(testExpo0.check("Mf"));
+
+        Field someMap = Ancestor.class.getDeclaredField("someMap");
+        someMap.setAccessible(true);
+
+        someMap.set(testExpo1, Map.of("1", 0.991));
+        System.out.println(someAct.invoke(testExpo1));
+
     }
 }
