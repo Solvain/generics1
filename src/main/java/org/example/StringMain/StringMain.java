@@ -36,6 +36,11 @@ public class StringMain {
             System.out.println(fruit);
         }
 
+
+
+
+
+
         String substringExample = "Програмування";
         System.out.println("Підстрока з 3 до 7 символу: " + substringExample.substring(2, 7));
 
@@ -50,6 +55,14 @@ public class StringMain {
 
         System.out.println("Бінарне число: " + binaryStr);
         System.out.println("Шістнадцяткове число: " + hexStr);
+
+
+        System.out.println(Long.toBinaryString(( 0b101010100)));
+        System.out.println(Long.toHexString(( 0x1c4f)));
+
+        Integer ggg = Integer.parseInt("1001", 2);
+        Integer aaa = Integer.parseInt("11", 16);
+        String str222 = String.valueOf(34.025);
     }
 }
 
