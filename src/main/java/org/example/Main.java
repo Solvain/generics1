@@ -1,8 +1,13 @@
 package org.example;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
+//    private static Map <Integer, Integer> a1 = new HashMap<Integer, Integer>() {
+//        put( 1, 2)
+//    };
     public static void main(String[] args) {
         String s1 = "dfgdsfgswwqosx";
         Object obj = new Object();
@@ -21,5 +26,21 @@ public class Main {
         System.out.println(abc.length);
         System.out.println(abc[2] == 99);
         System.out.println(Arrays.toString("abc".getBytes()));
+        //Long ggg = Long.parseLong("1001", 2);
+        System.out.println(Long.toBinaryString(0b101010100));
+        System.out.println(Long.toHexString(0x1c4f));
+        Integer ggg = Integer.parseInt("1001", 2);
+        Integer aaa = Integer.parseInt("11", 16);
+        System.out.println(aaa);
+        System.out.println("10".equals(10));
+        String str222 = String.valueOf(34.025);
+        System.out.println(str222);
+         String binaryStr = "1010";
+            String hexStr = "1A";
+
+            int binaryNum = Integer.parseInt(binaryStr, 2);
+          int hexNum = Integer.parseInt(hexStr, 16);
+          System.out.println("Бінарне число 1010 в десятковому форматі: " + binaryNum);
+          System.out.println("/nШістнадцяткове число 1A в десятковому форматі: " + hexNum);
     }
 }

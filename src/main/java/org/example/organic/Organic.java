@@ -116,9 +116,9 @@ public class Organic {
             foodChain.put(sparrow, wheat);
             foodChain.put(owl, sparrow);
 
-
             for (Map.Entry<Organic, Organic> entry : foodChain.entrySet()) {
-                System.out.println(STR."\{entry.getKey()} eats \{entry.getValue()}");
+                System.out.println(String.format("%s eats %s", entry.getKey(), entry.getValue()));
+                System.out.println(entry.getKey() + " eats " + entry.getValue());
             }
         }
     }

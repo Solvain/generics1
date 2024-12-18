@@ -47,7 +47,7 @@ public class ArrayParser {
     public int evenNumberCounter(int[] ints) {
         int count = 0;
         for (int number : ints) {
-            if (number % 4 == 0) {
+            if (number % 2 == 0 && number != 0) {
                 count++;
             }
         }
