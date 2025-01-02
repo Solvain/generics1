@@ -1,19 +1,18 @@
 package org.example.linkedlist;
 
-
 public class LinkedList<T> {
     private Node<T> head;
     private int size;
 
-
-
     private static class Node<T> {
         T data;
         Node<T> next;
+        Node<T> previous;
 
         Node(T data) {
             this.data = data;
             this.next = null;
+            this.previous = null;
         }
     }
 
@@ -34,9 +33,11 @@ public class LinkedList<T> {
                 current = current.next;
             }
             current.next = newNode;
+            newNode.previous = current;
         }
         size++;
     }
+
 
 
     public void add(int index, T element) {
@@ -48,18 +49,24 @@ public class LinkedList<T> {
 
         if (index == 0) {
             newNode.next = head;
+            if (head != null) {
+                head.previous = newNode;
+            }
             head = newNode;
         } else {
             Node<T> current = head;
-            for (int i = 0; i < index - 1; i++) {
+            for (int i = 0; i < index; i++) {
                 current = current.next;
             }
-            newNode.next = current.next;
-            current.next = newNode;
+            newNode.next = current;
+            newNode.previous = current.previous;
+            if (current.previous != null) {
+                current.previous.next = newNode;
+            }
+            current.previous = newNode;
         }
         size++;
     }
-
 
     public void set(int index, T element) {
         if (index < 0 || index >= size) {
@@ -77,7 +84,7 @@ public class LinkedList<T> {
     public void printList() {
         Node<T> current = head;
         while (current != null) {
-            System.out.print(current.data + " -> ");
+            System.out.print(current.data + " = ");
             current = current.next;
         }
         System.out.println("null");
@@ -104,22 +111,32 @@ public class LinkedList<T> {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index out of bounds");
         }
+
         T removedData;
+
         if (index == 0) {
             removedData = head.data;
             head = head.next;
+            if (head != null) {
+                head.previous = null;
+            }
         } else {
             Node<T> current = head;
-            for (int i = 0; i < index - 1; i++) {
+            for (int i = 0; i < index; i++) {
                 current = current.next;
             }
-            removedData = current.next.data;
-            current.next = current.next.next;
+            removedData = current.data;
+            if (current.previous != null) {
+                current.previous.next = current.next;
+            }
+            if (current.next != null) {
+                current.next.previous = current.previous;
+            }
         }
-        size --;
+
+        size--;
         return removedData;
     }
-
 
     public int getSize() {
         return size;
@@ -128,5 +145,5 @@ public class LinkedList<T> {
     public boolean isEmpty() {
         return head == null;
     }
-
 }
+
