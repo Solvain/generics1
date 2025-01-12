@@ -1,19 +1,36 @@
 package org.example.linkedlist;
 
-public class LinkedList<T> {
-    private Node<T> head;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Objects;
+import java.util.stream.Stream;
+
+public class LinkedList<T> implements MyList<T> {
+    private final Node<T> head;
     private int size;
+    private Node<T> first;
+    private Node<T> last;
+
 
     private static class Node<T> {
-        T data;
+        T value;
         Node<T> next;
-        Node<T> previous;
+        T data;
+        T element;
 
-        Node(T data) {
-            this.data = data;
+
+        Node(T value) {
+            this.value = value;
             this.next = null;
-            this.previous = null;
+
         }
+    }
+
+    @SafeVarargs
+    public static <T> LinkedList<T> of(T... elements) {
+        LinkedList<T> linkedList = new LinkedList<>();
+        Stream.of(elements).forEach(linkedList::add);
+        return linkedList;
     }
 
     public LinkedList() {
@@ -22,62 +39,141 @@ public class LinkedList<T> {
     }
 
 
+    private Node<T> findNodeByIndex(int index) {
+        Objects.checkIndex(index, size);
+        if (index == size - 1) {
+            return last;
+        } else {
+            return nodeAt(index);
+        }
+    }
+
+    private Node<T> nodeAt(int index) {
+        Node<T> currentNode = first;
+        for (int i = 0; i < index; i++) {
+            currentNode = currentNode.next;
+        }
+        return currentNode;
+    }
+
+    @Override
+    public T get(int index) {
+        Node<T> node = findNodeByIndex(index);
+        return node.value;
+    }
+
+    @Override
+    public T getFirst() {
+        checkElementsExist();
+        return first.value;
+    }
+
+    private void checkElementsExist() {
+        if (first == null) {
+            throw new NoSuchElementException();
+        }
+    }
+
+    @Override
+    public T getLast() {
+        checkElementsExist();
+        return last.value;
+    }
+
     public void add(T element) {
         Node<T> newNode = new Node<>(element);
-
-        if (head == null) {
-            head = newNode;
+        if (first == null) {
+            first = last = newNode;
         } else {
-            Node<T> current = head;
-            while (current.next != null) {
-                current = current.next;
-            }
-            current.next = newNode;
-            newNode.previous = current;
+            this.last.next = newNode;
+            last = newNode;
         }
         size++;
     }
 
+    private void addAsTail(Node<T> newNode) {
+        last.next = newNode;
+        last = newNode;
+    }
 
 
+    @Override
     public void add(int index, T element) {
         if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException("Invalid index");
+            throw new IndexOutOfBoundsException("Index out of bounds");
         }
-
         Node<T> newNode = new Node<>(element);
-
         if (index == 0) {
-            newNode.next = head;
-            if (head != null) {
-                head.previous = newNode;
+            newNode.next = first;
+            first = newNode;
+            if (size == 0) {
+                last = newNode;
             }
-            head = newNode;
         } else {
-            Node<T> current = head;
-            for (int i = 0; i < index; i++) {
-                current = current.next;
+            Node<T> current = getNodeByIndex(index - 1);
+            newNode.next = current.next;
+            current.next = newNode;
+            if (index == size) {
+                last = newNode;
+
             }
-            newNode.next = current;
-            newNode.previous = current.previous;
-            if (current.previous != null) {
-                current.previous.next = newNode;
-            }
-            current.previous = newNode;
         }
         size++;
     }
 
-    public void set(int index, T element) {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Invalid index");
-        }
-
-        Node<T> current = head;
+    private Node<T> getNodeByIndex(int index) {
+        Node<T> current = first;
         for (int i = 0; i < index; i++) {
             current = current.next;
         }
-        current.data = element;
+        return current;
+    }
+
+    @Override
+    public void addAll(List<T> elements) {
+        for (T element : elements) {
+            add(element);
+        }
+    }
+
+    public void set(int index, T element) {
+        Node<T> node = findNodeByIndex(index);
+        node.value = element;
+    }
+
+    @Override
+    public boolean contains(T element) {
+        Node<T> currentNode = first;
+        while (currentNode != null) {
+            if (currentNode.value.equals(element)) {
+                return true;
+            }
+            currentNode = currentNode.next;
+        }
+        return false;
+    }
+
+
+    @Override
+    public T remove(int index) {
+        Objects.checkIndex(index, size);
+        T removedElement;
+        if (index == 0) {
+            removedElement = first.element;
+            first = first.next;
+            if (first == null) {
+                last = null;
+            }
+        } else {
+            Node<T> prev = getNodeByIndex(index - 1);
+            removedElement = prev.next.value;
+            prev.next = prev.next.next;
+            if (index == size - 1) {
+                last = prev;
+            }
+        }
+        size--;
+        return removedElement;
     }
 
 
@@ -90,60 +186,26 @@ public class LinkedList<T> {
         System.out.println("null");
     }
 
-
-    public boolean contains(T element) {
-        Node<T> current = head;
-        while (current != null) {
-            if ((current.data == null && element == null) || (current.data != null && current.data.equals(element))) {
-                return true;
-            }
-            current = current.next;
-        }
-        return false;
-    }
-    public void clear() {
-        head = null;
-        size = 0;
-    }
-
-
-    public T remove(int index) {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Index out of bounds");
-        }
-
-        T removedData;
-
-        if (index == 0) {
-            removedData = head.data;
-            head = head.next;
-            if (head != null) {
-                head.previous = null;
-            }
-        } else {
-            Node<T> current = head;
-            for (int i = 0; i < index; i++) {
-                current = current.next;
-            }
-            removedData = current.data;
-            if (current.previous != null) {
-                current.previous.next = current.next;
-            }
-            if (current.next != null) {
-                current.next.previous = current.previous;
-            }
-        }
-
-        size--;
-        return removedData;
-    }
-
-    public int getSize() {
+    public int size() {
         return size;
     }
 
+    @Override
     public boolean isEmpty() {
-        return head == null;
+        return first == null;
+    }
+
+    public void clear() {
+        first = last = null;
+        size = 0;
+    }
+
+    @Override
+    public int getSize() {
+        return 0;
     }
 }
+
+
+
 
