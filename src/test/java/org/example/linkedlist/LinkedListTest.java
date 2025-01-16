@@ -2,26 +2,24 @@ package org.example.linkedlist;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.NoSuchElementException;
-
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.NoSuchElementException;
 
 public class LinkedListTest {
 
     @Test
-    void testAddAndPrintList() {
+    public void testAddAndPrintList() {
         LinkedList<Integer> list = new LinkedList<>();
         list.add(10);
         list.add(20);
         list.add(30);
 
         assertEquals(3, list.size());
-
         list.printList();
     }
 
     @Test
-    void testAddAtIndex() {
+    public void testAddAtIndex() {
         LinkedList<Integer> list = new LinkedList<>();
         list.add(10);
         list.add(20);
@@ -35,18 +33,16 @@ public class LinkedListTest {
     }
 
     @Test
-    void testSet() {
+    public void testSet() {
         LinkedList<Integer> list = new LinkedList<>();
         list.add(10);
         list.add(20);
         list.add(30);
 
-
         list.set(1, 25);
         assertEquals(25, list.get(1));
         assertTrue(list.contains(25));
         assertFalse(list.contains(20));
-
 
         list.set(0, 5);
         assertEquals(5, list.get(0));
@@ -55,21 +51,18 @@ public class LinkedListTest {
         assertEquals(35, list.get(2));
     }
 
-
     @Test
-    void testSetOutOfBounds() {
+    public void testSetOutOfBounds() {
         LinkedList<Integer> list = new LinkedList<>();
         list.add(10);
         list.add(20);
-
 
         assertThrows(IndexOutOfBoundsException.class, () -> list.set(2, 30));
         assertThrows(IndexOutOfBoundsException.class, () -> list.set(-1, 5));
     }
 
-
     @Test
-    void testContains() {
+    public void testContains() {
         LinkedList<Integer> list = new LinkedList<>();
         list.add(10);
         list.add(20);
@@ -81,9 +74,8 @@ public class LinkedListTest {
         assertTrue(list.contains(30));
     }
 
-
     @Test
-    void testClear() {
+    public void testClear() {
         LinkedList<Integer> list = new LinkedList<>();
         list.add(1);
         list.add(2);
@@ -96,7 +88,7 @@ public class LinkedListTest {
     }
 
     @Test
-    void testRemove() {
+    public void testRemove() {
         LinkedList<Integer> list = new LinkedList<>();
         list.add(10);
         list.add(20);
@@ -110,36 +102,35 @@ public class LinkedListTest {
     }
 
     @Test
-    void testRemoveInvalidIndex() {
+    public void testRemoveInvalidIndex() {
         LinkedList<Integer> list = new LinkedList<>();
         list.add(10);
         list.add(20);
-
 
         assertThrows(IndexOutOfBoundsException.class, () -> list.remove(5));
     }
 
     @Test
-    void testAddAtInvalidIndex() {
+    public void testAddAtInvalidIndex() {
         LinkedList<Integer> list = new LinkedList<>();
         list.add(10);
         list.add(20);
-
+        list.add(30);
 
         assertThrows(IndexOutOfBoundsException.class, () -> list.add(5, 30));
     }
 
     @Test
-    void testSetInvalidIndex() {
+    public void testSetInvalidIndex() {
         LinkedList<Integer> list = new LinkedList<>();
         list.add(10);
-
+        list.add(20);
 
         assertThrows(IndexOutOfBoundsException.class, () -> list.set(3, 15));
     }
 
     @Test
-    void testGetFirstAndLast() {
+    public void testGetFirstAndLast() {
         LinkedList<Integer> list = new LinkedList<>();
         list.add(10);
         list.add(20);
@@ -150,70 +141,8 @@ public class LinkedListTest {
     }
 
     @Test
-    void testGetFirstOnEmptyList() {
+    public void testGetFirstOnEmptyList() {
         LinkedList<Integer> list = new LinkedList<>();
-
-
         assertThrows(NoSuchElementException.class, list::getFirst);
-    }
-
-    @org.junit.Test
-    public void of() {
-    }
-
-    @org.junit.Test
-    public void get() {
-    }
-
-    @org.junit.Test
-    public void getFirst() {
-    }
-
-    @org.junit.Test
-    public void getLast() {
-    }
-
-    @org.junit.Test
-    public void add() {
-    }
-
-    @org.junit.Test
-    public void testAdd() {
-    }
-
-    @org.junit.Test
-    public void addAll() {
-    }
-
-    @org.junit.Test
-    public void set() {
-    }
-
-    @org.junit.Test
-    public void contains() {
-    }
-
-    @org.junit.Test
-    public void remove() {
-    }
-
-    @org.junit.Test
-    public void printList() {
-    }
-
-    @org.junit.Test
-    public void size() {
-    }
-
-    @org.junit.Test
-    public void isEmpty() {
-    }
-
-    @org.junit.Test
-    public void clear() {
-    }
-
-    @org.junit.Test
-    public void getSize() {
     }
 }
