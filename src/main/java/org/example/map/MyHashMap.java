@@ -106,4 +106,16 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
             return key + "=" + value;
         }
     }
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Node<K, V> node : table) {
+            while (node != null) {
+                sb.append(node.toString()).append(System.lineSeparator());
+                node = node.next;
+            }
+        }
+        return sb.toString();
+    }
+
 }
