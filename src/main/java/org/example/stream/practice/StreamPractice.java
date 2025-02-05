@@ -16,53 +16,29 @@ public class StreamPractice {
     private static final String DIVIDER = ",";
 
     public int findMinEvenNumber(List<String> numbers) {
-        return numbers.stream()
-                .map(n -> n.split(DIVIDER))
-                .flatMap(Arrays::stream)
-                .mapToInt(Integer::valueOf)
-                .filter(n -> n % 2 == 0)
-                .min()
-                .orElseThrow(() -> new RuntimeException(CANT_GET_VALUE_MESSAGE + numbers));
+        return 0;
     }
 
     public Double getOddNumsAverage(List<Integer> numbers) {
-        return IntStream.range(0, numbers.size())
-                .mapToObj(i -> i % 2 != 0 ? numbers.get(i) - 1 : numbers.get(i))
-                .filter(f -> f % 2 != 0)
-                .mapToDouble(d -> d)
-                .average()
-                .orElseThrow(() -> new NoSuchElementException(NO_ELEMENT_MESSAGE));
+        return .0;
     }
 
     public List<Person> selectMenByAge(List<Person> peopleList, int fromAge, int toAge) {
-        return peopleList.stream()
-                .filter(p -> isManByAgeMatchInclusive(fromAge, toAge, p))
-                .toList();
+        return null;
     }
 
     public List<Person> getWorkablePeople(int fromAge, int femaleToAge,
                                           int maleToAge, List<Person> peopleList) {
-        return peopleList.stream()
-                .filter(p -> personFitsAge(fromAge, femaleToAge, maleToAge, p))
-                .toList();
+        return null;
     }
 
     public List<String> getCatsNames(List<Person> peopleList, int femaleAge) {
-        return peopleList.stream()
-                .filter(p -> conditionForCatNames(femaleAge, p))
-                .map(Person::getCats)
-                .flatMap(Collection::stream)
-                .map(Cat::getName)
-                .toList();
+        return null;
     }
 
     public List<String> validateCandidates(List<Candidate> candidates) {
         CandidateValidator validator = new CandidateValidator();
-        return candidates.stream()
-                .filter(validator)
-                .map(Candidate::getName)
-                .sorted()
-                .toList();
+        return null;
     }
 
     private boolean conditionForCatNames(int femaleAge, Person p) {
