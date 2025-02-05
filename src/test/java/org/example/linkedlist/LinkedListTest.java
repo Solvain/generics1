@@ -137,7 +137,7 @@ public class LinkedListTest {
         list.add(30);
 
         assertEquals(10, list.getFirst());
-        assertEquals(30, list.get(list.size() - 1));
+        assertEquals(30, list.getLast());
     }
 
     @Test

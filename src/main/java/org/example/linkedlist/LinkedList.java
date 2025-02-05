@@ -200,10 +200,6 @@ public class LinkedList<T> implements MyList<T> {
         size = 0;
     }
 
-    @Override
-    public int getSize() {
-        return 0;
-    }
 }
 
 

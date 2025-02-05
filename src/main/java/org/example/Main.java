@@ -1,13 +1,23 @@
 package org.example;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.Deque;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import org.example.map.MyHashMap;
 
 public class Main {
-//    private static Map <Integer, Integer> a1 = new HashMap<Integer, Integer>() {
-//        put( 1, 2)
-//    };
+        private static Map <Integer, Integer> a1 = new HashMap<>() {{
+        put( 1, 2);
+        put( 2, 2);
+    }};
     public static void main(String[] args) {
         String s1 = "dfgdsfgswwqosx";
         Object obj = new Object();
@@ -35,12 +45,24 @@ public class Main {
         System.out.println("10".equals(10));
         String str222 = String.valueOf(34.025);
         System.out.println(str222);
-         String binaryStr = "1010";
-            String hexStr = "1A";
+        String binaryStr = "1010";
+        String hexStr = "1A";
 
-            int binaryNum = Integer.parseInt(binaryStr, 2);
-          int hexNum = Integer.parseInt(hexStr, 16);
-          System.out.println("Бінарне число 1010 в десятковому форматі: " + binaryNum);
-          System.out.println("/nШістнадцяткове число 1A в десятковому форматі: " + hexNum);
+        int binaryNum = Integer.parseInt(binaryStr, 2);
+        int hexNum = Integer.parseInt(hexStr, 16);
+        System.out.println("Бінарне число 1010 в десятковому форматі: " + binaryNum);
+        System.out.println("/nШістнадцяткове число 1A в десятковому форматі: " + hexNum);
+        List<Integer> a = new LinkedList<>();
+        a.add(1);
+//        "AaAa"  same hashcode
+//        "BBBB"
+//        "AaBB"
+//        "BBAa"
+        System.out.println("AaAa".hashCode());
+        System.out.println("BBBB".hashCode());
+        MyHashMap mm = new MyHashMap();
+        mm.put("AaAa", new Date());
+        mm.put("BBBB", "new node ");
+        System.out.println(mm);
     }
 }

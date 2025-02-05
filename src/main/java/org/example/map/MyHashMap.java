@@ -1,5 +1,6 @@
 package org.example.map;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class MyHashMap<K, V> implements MyMap<K, V> {
@@ -83,6 +84,15 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
         return 0;
     }
 
+//    @Override
+//    public String toString() {
+//        return "MyHashMap{" +
+//                "threshold=" + threshold +
+//                "\n, table=" + Arrays.toString(table) +
+//                ", size=" + size +
+//                '}';
+//    }
+
     private static class Node<K, V> {
         private final K key;
         private V value;
@@ -103,7 +113,8 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
         }
 
         public final String toString() {
-            return key + "=" + value;
+            //return next == null ? (key + "=" + value) : key + "=" + value + " " + next;
+            return (key + "=" + value);
         }
     }
     @Override

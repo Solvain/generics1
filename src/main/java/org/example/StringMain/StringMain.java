@@ -24,7 +24,7 @@ public class StringMain {
 
 
         String regexExample = "abc";
-        System.out.println(STR."Чи відповідає abc шаблону: \{regexExample.matches("[a-z]+\\d+")}");
+        //System.out.println(STR."Чи відповідає abc шаблону: \{regexExample.matches("[a-z]+\\d+")}");
 
         String replaceAllExample = "Java is cool. Java is fun.";
         System.out.println("Замінити Java на Python: " + replaceAllExample.replaceAll("Java", "Python"));
