@@ -12,8 +12,10 @@ public class MainReflect {
         System.out.println(TestExpo.numberOfInstances);
         TestExpo testExpo1 = new TestExpo(1);
         System.out.println(TestExpo.numberOfInstances);
+        Field someMap = Ancestor.class.getDeclaredField("someMap");
+        someMap.setAccessible(true);
+        someMap.set(testExpo0, Map.of(1, "one", 2, "two"));
 
-        testExpo0.setSomeMap(Map.of(1, "one", 2, "two"));
         System.out.println(testExpo0.getSomeMap());
 
         Method someAct = testExpo0.getClass().getDeclaredMethod("someActions");
@@ -29,11 +31,7 @@ public class MainReflect {
 
         System.out.println(testExpo0.check("Mf"));
 
-        Field someMap = Ancestor.class.getDeclaredField("someMap");
-        someMap.setAccessible(true);
-
         someMap.set(testExpo1, Map.of("1", 0.991));
         System.out.println(someAct.invoke(testExpo1));
-
     }
 }
