@@ -1,15 +1,18 @@
 package org.example.Files;
-import java.nio.file.*;
-import java.io.IOException;
+import java.io.File;
 
 public class FileExamples {
-    public static void main(String[] args) throws IOException {
-        Path path = Paths.get("data/example.txt");
+    public static void main(String[] args) {
+        String folderPath = "C:/Users/user/Documents";
 
-        Files.createDirectories(path.getParent());
-        Files.writeString(path, "Hello for example1.txt");
+        File folder = new File(folderPath);
 
-        String content = Files.readString(path);
-        System.out.println("Read for data/example1.txt: " + content);
+        if (folder.exists() && folder.isDirectory()) {
+            File[] files = folder.listFiles();
+            int fileCount = (files != null) ? files.length : 0;
+            System.out.println("Кількість файлів у папці " + folderPath + ": " + fileCount);
+        } else {
+            System.out.println("Вказана дорога до файлу, або його не існує");
+        }
     }
 }
