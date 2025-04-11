@@ -7,19 +7,23 @@ import java.util.List;
 
 public class FileExamples {
     public static void main(String[] args) {
-        countFilesInFolder("C:/Users/user/Documents");
+        String projectDir = System.getProperty("user.dir");
+        System.out.println(projectDir);
+        countFilesInFolder("/data/some");
         example1();
         example2();
     }
 
-    public static void countFilesInFolder(String folderPath) {
+    public static int countFilesInFolder(String folderPath) {
         File folder = new File(folderPath);
         if (folder.exists() && folder.isDirectory()) {
             File[] files = folder.listFiles();
             int fileCount = (files != null) ? files.length : 0;
             System.out.println("Кількість файлів у папці " + folderPath + ": " + fileCount);
+            return fileCount;
         } else {
             System.out.println("Вказана дорога до файлу, або його не існує");
+            return 0;
         }
     }
 
